@@ -1,0 +1,10 @@
+pymc>=4.0
+arviz>=0.15
+numpy
+pandas
+matplotlib
+seaborn
+scipy
+statsmodels
+scikit-learn
+pytest
