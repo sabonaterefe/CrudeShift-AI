@@ -1,0 +1,85 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/*  Theme Variables */
+:root {
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --primary: #0ea5e9;
+  --highlight: #ef4444;
+  --font-sans: 'Inter', 'Segoe UI', sans-serif;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --primary: #38bdf8;
+    --highlight: #f87171;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* 📱 Global Styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+
+/* 🧾 Card Styling */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* 🖱️ Interactive Elements */
+a,
+button {
+  color: var(--primary);
+  transition: color 0.2s ease;
+}
+
+a:hover,
+button:hover {
+  color: var(--highlight);
+}
+
+/* 📊 Chart Container */
+.chart-container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* 💬 Tooltip Style (if custom) */
+.tooltip {
+  background-color: var(--card-bg);
+  color: var(--foreground);
+  border: 1px solid var(--card-border);
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-sm);
+}
