@@ -28,8 +28,8 @@ The goal of Task 1 is to build a reliable preprocessing pipeline and perform det
   `data/processed/cleaned_data.csv`
 
   ## Exploratory Visualizations
-  - 📈 Time series of Brent prices: `reports/figures/price_timeseries.png`
-  - 📊 Log return distribution: `reports/figures/logreturn_distribution.png`
+  - Time series of Brent prices: `reports/figures/price_timeseries.png`
+  - Log return distribution: `reports/figures/logreturn_distribution.png`
 
   ## Stationarity Testing
   - Applied Augmented Dickey–Fuller test (ADF) on log returns
@@ -89,13 +89,68 @@ Branches Overview
 Branch Name	Purpose
 data-prep	All preprocessing, cleaning, and EDA
 modeling	Both fast and Bayesian changepoint models, figures
-# Next Steps
-Generalize modeling for multiple changepoints (e.g. ruptures)
 
-Add markdown reporting in reports/
+## Frontend Enhancements
+Built with Next.js App Router + TypeScript, the dashboard lives in frontend/src/app/page.tsx.
 
-Enable CLI-based execution with parameterized controls
+Integrated Chart.js with zoom/pan support via chartjs-plugin-zoom.
 
-Improve changepoint interpretability using macroeconomic overlays
+Implemented downsampling for large datasets using client-side rolling averages for smoother rendering.
 
-Built and maintained by Sabona with modularity, precision, and statistical elegance.
+Date Range Filtering:
+
+Users can narrow time series views using startDate and endDate inputs.
+
+Applies to both raw price and forecasted views.
+
+Event Filtering:
+
+Sidebar filters for event type and region (from event source).
+
+Event list only appears when a valid filter is selected.
+
+Robust error handling and fallback logic prevents UI crashes due to missing or malformed API data.
+
+## API Endpoints
+Route	Description
+/api/data	Full Brent price history
+/api/forecast	Rolling average forecast estimates
+/api/events	Annotated market events with impact
+/api/summary	Volatility and daily change stats
+/api/sentiment	Static market sentiment indicators
+/api/macros	GDP growth, inflation, currency rate
+/api/metrics	Model RMSE for changepoint algorithms
+All served via Flask with CORS enabled.
+
+## Running Locally
+Backend (Flask)
+cd backend
+python app.py
+Frontend (Next.js)
+
+cd frontend
+npm install
+npm run dev
+Ensure both servers are running on:
+
+Flask: http://127.0.0.1:5000
+
+Next: http://localhost:3000
+
+## Testing & Validation
+Manual checks across endpoints for correctness and response shape
+
+Type-safe filtering of frontend data against undefined/NaN entries
+
+Verified JSON compatibility across null, strings, floats
+
+Performed changepoint model validation via posterior trace review
+
+Chart interactivity tested with large datasets (8000+ records)
+
+## Completed Tasks Overview
+Task	Summary	Status
+Task 1	Data cleanup, log return calc, EDA	, Done
+Task 2	Fast and Bayesian changepoint modeling	, Done
+Task 3	Dashboard with filters, charts, API backend	, Done
+
