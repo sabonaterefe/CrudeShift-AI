@@ -89,8 +89,57 @@ Branches Overview
 Branch Name	Purpose
 data-prep	All preprocessing, cleaning, and EDA
 modeling	Both fast and Bayesian changepoint models, figures
+--------
+## Task 3: Developing an Interactive Dashboard for Analysis Results
+This task focused on building a fullstack dashboard that visualizes how various events affect Brent oil prices, helping stakeholders extract insights from both statistical and contextual analyses.
 
-## Frontend Enhancements
+## Technologies & Architecture
+Backend: Flask
+
+API endpoints deliver structured data, forecasts, and model performance metrics
+
+Supports requests for historical trends, sentiment breakdowns, and macroeconomic indicators
+
+Modular integration for future real-time data feeds
+
+Frontend: React
+
+Responsive UI designed for desktop and mobile users
+
+Interactive charts built with Recharts, React Chart.js 2, and D3.js
+
+Event-centric view that reveals price reactions to external shocks (e.g., policy changes, geopolitical tension)
+
+## Dashboard Highlights
+Historical Trends & Forecasts
+
+Tracks Brent oil price movements with overlays for ARIMA and Bayesian forecasts
+
+Displays volatility metrics (e.g., 1.0976) and average daily change (−0.0011)
+
+Event Highlighting & Correlation Explorer
+
+Visual emphasis on price spikes/drops around key events
+
+Users can select time windows and view sentiment impact (e.g., 62 Positive / 10 Negative mentions)
+
+Macro Indicator Panel
+
+Real-time macro context:
+
+GDP Growth: 2.5%
+
+Inflation Rate: 5.7%
+
+Exchange Rate: 0.83
+
+Supports interpretation of regime shifts and forecast accuracy
+
+User Controls
+
+Date range selection, data filtering, and zoom-in capabilities for high-resolution insights
+
+Comparison toggles between models, event types, and performance metrics (e.g., ARIMA RMSE: 1.12, Bayesian RMSE: 0.98)
 Built with Next.js App Router + TypeScript, the dashboard lives in frontend/src/app/page.tsx.
 
 Integrated Chart.js with zoom/pan support via chartjs-plugin-zoom.
